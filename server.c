@@ -35,7 +35,12 @@ int main() {
 // Function to create the server socket
 int create_server_socket() {
     // TODO: Implement server socket creation
-    return 0;
+    int server_fd = socket(AF_INET, SOCK_DGRAM, 0); //AF_INET specifies IPv4, SOCK_DGRAM specifies UDP
+    if (sever_fd < 0) {
+        perror("Socket creation failed.");
+        exit(EXIT_FAILURE);
+    }
+    return server_fd;
 }
 
 // Function to bind the server socket to an address and port
