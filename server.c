@@ -35,7 +35,7 @@ int main() {
 int create_server_socket() {
     // TODO: Implement server socket creation
     int server_fd = socket(AF_INET, SOCK_DGRAM, 0); //AF_INET specifies IPv4, SOCK_DGRAM specifies UDP
-    if (sever_fd < 0) { //If the server file descriptor is less than 1, then the socket was not created
+    if (server_fd < 0) { //If the server file descriptor is less than 1, then the socket was not created
         perror("Socket creation failed.");
         exit(EXIT_FAILURE);
     }
