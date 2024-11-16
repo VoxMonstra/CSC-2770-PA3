@@ -26,11 +26,6 @@ int main() {
     send_message(client_socket, message);
     close_client_socket(client_socket);
 
-int num = 10;
-    char str[] = "Hello";
-
-    printf("Integer: %d, String: %s\n", num, str);
-    
     return 0;
 }
 
