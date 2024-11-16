@@ -16,6 +16,7 @@ void handle_client(int client_socket);
 void close_server_socket(int server_fd);
 
 int main() {
+    printf("Test");
     int server_fd, client_socket;
     struct sockaddr_in address;
     
