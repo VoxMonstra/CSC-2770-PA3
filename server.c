@@ -21,7 +21,6 @@ int main() {
     
     server_fd = create_server_socket();
     bind_server_socket(server_fd, &address);
-    listen_for_connections(server_fd);
 
     while (1) {
         client_socket = accept_client_connection(server_fd, &address);
@@ -36,7 +35,7 @@ int main() {
 int create_server_socket() {
     // TODO: Implement server socket creation
     int server_fd = socket(AF_INET, SOCK_DGRAM, 0); //AF_INET specifies IPv4, SOCK_DGRAM specifies UDP
-    if (sever_fd < 0) {
+    if (sever_fd < 0) { //If the server file descriptor is less than 1, then the socket was not created
         perror("Socket creation failed.");
         exit(EXIT_FAILURE);
     }
