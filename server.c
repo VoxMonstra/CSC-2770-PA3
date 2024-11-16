@@ -34,6 +34,7 @@ int main() {
 // Function to create the server socket
 int create_server_socket() {
     // TODO: Implement server socket creation
+    printf("Test");
     int server_fd = socket(AF_INET, SOCK_DGRAM, 0); //AF_INET specifies IPv4, SOCK_DGRAM specifies UDP
     if (server_fd < 0) { //If the server file descriptor is less than 1, then the socket was not created
         perror("Socket creation failed.");
