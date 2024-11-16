@@ -6,7 +6,7 @@
 #include <arpa/inet.h>
 
 //hello world
-
+//URL: https://github.com/VoxMonstra/CSC-2770-PA3.git
 #define PORT 8080
 #define MAX_PACKET_SIZE 150  // Limit packet size to 150 bytes
 
@@ -26,6 +26,11 @@ int main() {
     send_message(client_socket, message);
     close_client_socket(client_socket);
 
+int num = 10;
+    char str[] = "Hello";
+
+    printf("Integer: %d, String: %s\n", num, str);
+    
     return 0;
 }
 
