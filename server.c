@@ -39,6 +39,9 @@ int create_server_socket() {
         perror("Socket creation failed.");
         exit(EXIT_FAILURE);
     }
+    else {
+        printf("Socket creation successful");
+    }
     return server_fd;
 }
 
