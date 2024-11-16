@@ -16,7 +16,6 @@ void handle_client(int client_socket);
 void close_server_socket(int server_fd);
 
 int main() {
-    printf("Test");
     int server_fd, client_socket;
     struct sockaddr_in address;
     
@@ -35,7 +34,6 @@ int main() {
 // Function to create the server socket
 int create_server_socket() {
     // TODO: Implement server socket creation
-    printf("Test");
     int server_fd = socket(AF_INET, SOCK_DGRAM, 0); //AF_INET specifies IPv4, SOCK_DGRAM specifies UDP
     if (server_fd < 0) { //If the server file descriptor is less than 1, then the socket was not created
         perror("Socket creation failed.");
@@ -50,6 +48,16 @@ int create_server_socket() {
 // Function to bind the server socket to an address and port
 void bind_server_socket(int server_fd, struct sockaddr_in *address) {
     // TODO: Implement binding the server socket to an address
+    memset(address, 0, sizeof(*address));
+    address->sin_family = AF_INET;
+    address->sin_addr.s_addr = INADDR_ANY;
+    address->sin_port = htons(PORT);
+
+    if (bind(server_fd, (struct sockaddr *)address, sizeof(*address)) < 0) {
+        perror("Bind failed");
+        close(server_fd);
+        exit(EXIT_FAILURE);
+    }
 }
 
 // Function to accept client connections
